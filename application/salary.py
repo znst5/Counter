@@ -1,5 +1,5 @@
 import emoji
-from db.people import Employee
+from application.db.people import Employee
 
 class Salary(Employee):
     def __init__(self, name, age, position, salary, percent, bonus):
@@ -14,10 +14,9 @@ class Salary(Employee):
         return sum_
 
     def __str__(self):
-        return f'(Имя:{self.name}, Зарплата:{sum_})'
+        return f'(Имя:{self.name}, Зарплата:{self.get_salary()})'
 
 
-s = Salary('Data', 23, 'worker', 1000, 13, 1000 )
-print(s)
-
-# if __name__ == '__main__':
+if __name__ == '__main__':
+    s = Salary('Data', 23, 'worker', 1000, 13, 1000 )
+    print(s, emoji.emojize(':OK_hand:'))
